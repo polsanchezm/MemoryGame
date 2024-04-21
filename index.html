@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Memory</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+
+    <body>
+        <div id="top-text"></div>
+
+        <div class="top-block">
+            <div id="comptador">00:00</div>
+            <div id="moviments">Moviments: 0</div>
+            <div id="puntuacio">Puntuació: 0</div>
+            <label for="dificultat" id="text-dificultat">Sel·lecciona un <br>
+                mode de dificultat: </label>
+            <select class="dificultat">
+                <option id="facil" value="facil">Fàcil</option>
+                <option id="normal" value="normal">Normal</option>
+                <option id="dificil" value="dificil">Dificil</option>
+            </select>
+        </div>
+        <div class="container">
+            <div id="tauler"></div><br>
+            <div class="botons">
+                <button id="botoInici">START</button>
+                <button id="botoFi">STOP</button>
+            </div>
+        </div>
+
+        <script src="./assets/js/funcions.js"></script>
+    </body>
+
+</html>

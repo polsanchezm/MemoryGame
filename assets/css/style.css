@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Lalezar&family=Rubik+Mono+One&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: "Bebas Neue";
+  margin: 0;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/bg.jpeg");
+  backdrop-filter: blur(5px);
+  background-size: 150%;
+  min-height: 100vh;
+  animation: moverFondo 100s linear infinite;
+}
+
+@keyframes moverFondo {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.container {
+  border: 1px solid white;
+  padding: 30px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
+  max-height: 80vh;
+  max-width: 100%;
+  scale: 1.05;
+  box-sizing: content-box;
+}
+
+.top-block {
+  border: 1px solid white;
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
+  box-sizing: content-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+#moviments,
+#comptador,
+#puntuacio {
+  font-size: 30px;
+  text-shadow: 2px 2px white;
+  color: rgb(61, 60, 60);
+  padding-left: 10px;
+  padding-right: 20px;
+  margin-top: 20px;
+}
+
+.dificultat {
+  appearance: none;
+  background-color: skyblue;
+  border: 2px solid skyblue;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  color: #333;
+  text-shadow: 1px 1px white;
+  box-shadow: 4px 4px black;
+  width: 200px;
+  text-align: center;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.dificultat::after {
+  content: '\25BE';
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: skyblue;
+}
+
+.dificultat:focus {
+  outline: none;
+  box-shadow: 0 0 5px skyblue;
+  text-shadow: 1px 1px white;
+  box-shadow: 4px 4px black;
+  text-align: center;
+  justify-content: center;
+}
+
+.dificultat:active,
+.dificultat:hover {
+  border-color: skyblue;
+  background-color: skyblue;
+  text-shadow: 1px 1px white;
+  box-shadow: 4px 4px black;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.dificultat option {
+  text-align: center;
+  padding-left: 50px;
+}
+
+#tauler {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.carta {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  border-radius: 15px;
+  perspective: 1000px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-sizing: content-box;
+}
+
+.carta .cara {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.cara-davant {
+  background-color: black;
+  color: #fff;
+  transform: rotateY(0deg);
+}
+
+.cara-darrere {
+  background-color: black;
+  border-radius: 10px;
+  transform: rotateY(180deg);
+}
+
+.carta-girada {
+  transform: rotateY(180deg);
+}
+
+.carta .cara.cara-davant {
+  background-color: black;
+  border-radius: 10px;
+}
+
+.carta .cara.cara-davant>img {
+  border-radius: 10px;
+  user-select: none;
+  max-width: 100%;
+  box-shadow: 5px 5px 5px 1px black;
+}
+
+.carta .cara.cara-darrere>img {
+  border-radius: 9px;
+  user-select: none;
+  max-width: 100%;
+  box-shadow: 5px 5px 5px 1px black;
+}
+
+#top-text {
+  font-size: 50px;
+  padding-bottom: 50px;
+  text-shadow: 2px 2px white;
+  color: rgb(61, 60, 60);
+  position: relative;
+  z-index: 2;
+}
+
+#text-dificultat {
+  font-size: 30px;
+  padding-top: 50px;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px white;
+  color: red;
+  position: relative;
+  z-index: 2;
+}
+
+#comptador {
+  text-shadow: 4px 4px white;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  font-size: 3em;
+  color: rgb(61, 60, 60);
+}
+
+.botons {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+button {
+  width: 100%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: "Lalezar";
+  transition: 0.5s;
+  border-radius: 10px;
+  font-size: 40px;
+  padding: 10px 30px;
+}
+
+#botoInici {
+  margin-left: 5px;
+  background-color: green;
+}
+
+#botoInici:hover {
+  background-color: #45a049;
+}
+
+#botoFi {
+  margin-right: 0.25px;
+  background-color: red;
+}
+
+#botoFi:hover {
+  background-color: #FF6347;
+}
